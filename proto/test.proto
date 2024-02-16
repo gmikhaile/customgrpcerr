@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "errortest/";
+
+package errortest;
+
+message Error {
+  string group = 1;
+  string code = 2;
+  string description = 3;
+  uint32 internalCode = 4;
+}
+
+message StatusMsg {
+  string state = 1;
+}
+
+message EmptyMsg {
+}
+
+service ErrorTest {
+   rpc ErrorTest(EmptyMsg) returns (StatusMsg) {}
+}
